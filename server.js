@@ -6,4 +6,3 @@ const app=express();
 const PORT= 3000;
 
 
-//const url = mongodb+srv://srlestolano_db_user:zeruela@cluster0.qshgavr.mongodb.net/?appName=Cluster0
