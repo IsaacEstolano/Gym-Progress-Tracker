@@ -1,0 +1,28 @@
+{
+  "name": "gym-progress-tracker",
+  "version": "1.0.0",
+  "description": "Sistema para registrar e acompanhar evolução de carga nos exercícios de musculação, permitindo análise histórica e melhoria de performance. Tecnologias     Node.js;     Html/Css;     JS;     MongoDB;",
+  "homepage": "https://github.com/IsaacEstolano/Gym-Progress-Tracker#readme",
+  "bugs": {
+    "url": "https://github.com/IsaacEstolano/Gym-Progress-Tracker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacEstolano/Gym-Progress-Tracker.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.5.0",
+    "node": "^24.15.0"
+  }
+}
