@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const modelListingSchema = new mongoose.Schema({
-    Id:Number,
     Exercicio:String,
     Tipo:String,
     Repeticao:Number,
