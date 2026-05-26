@@ -1,26 +1,26 @@
 import modelListing from "../models/workoutListing.js";
 
-export const createWorkout = async (req,res)=>{
+export const createWorkout = async (req,res,next)=>{
      try{
         const workouListing = await modelListing.create(req.body)
             res.send(workouListing);
             }
     catch(error){
-        res.json({error:error.message})
+        next(error)
           }
         }
 
-export const getWorkout=async (req,res)=>{
+export const getWorkout=async (req,res,next)=>{
     try{
         const workoutView=await modelListing.find()
         res.send(workoutView);
     }
     catch(error){
-        res.json({error:error.message})
+        next(error)
     }
 }
 
-export const updatedWorkout=async(req,res)=>{
+export const updatedWorkout=async(req,res,next)=>{
     try{
         const newWorkoutListing=await modelListing.findByIdAndUpdate(
             req.params.id,
@@ -30,17 +30,17 @@ export const updatedWorkout=async(req,res)=>{
         res.send(newWorkoutListing);
     }
     catch(error){
-        res.json({error:error.message})
+        next(error)
     }
 }
 
-export const deletedWorkout = async(req,res)=>{
+export const deletedWorkout = async(req,res,next)=>{
     try{
         await modelListing.findByIdAndDelete(req.params.id);
         res.send("Deletado com sucesso.")
     }
     catch(error){
-        res.json({error:error.message})
+        next(error)
     }
 }
 

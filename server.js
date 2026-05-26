@@ -17,6 +17,7 @@ const conectMDB = async () => {
                 }
            catch(error){
             console.log("Erro ao conectar",error)
+            process.exit(1)
             }
          }
 conectMDB();

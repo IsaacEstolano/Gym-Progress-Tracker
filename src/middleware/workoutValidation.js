@@ -1,12 +1,15 @@
 import {coerce, z} from "zod";
 
+const seriesSchema=z.object({
+    Repeticao:z.coerce.number().int().positive(),
+    Peso:z.coerce.number().positive(),
+})
+
 const validationSchema = z.object({
     Exercicio:z.string().min(5).max(40),
     Tipo:z.string().min(5).max(40),
-    Repeticao:z.coerce.number().int().positive(),
-    Series:z.coerce.number().int().positive(),
-    Peso:z.coerce.number().positive(),
-    Data:z.date()
+    Series:z.array(seriesSchema).min(1),
+    Data:z.coerce.date()
 })
 
 export const workoutValidation=(req,res,next)=>{
@@ -15,8 +18,6 @@ export const workoutValidation=(req,res,next)=>{
         next();
     }
     catch(error){
-        res.status(400).json({
-            error:error.message
-        })
+        next(error)
     }
 }

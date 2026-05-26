@@ -1,12 +1,36 @@
 import mongoose from "mongoose";
+import { type } from "node:os";
+import { date } from "zod";
+
+const seriesExecutadas = new mongoose.Schema({
+    Peso:{
+        type:Number,
+        required:true
+    },
+     Repeticao:{
+        type:Number,
+        required:true
+    }
+},{_id:false})
 
 const modelListingSchema = new mongoose.Schema({
-    Exercicio:String,
-    Tipo:String,
-    Repeticao:Number,
-    Series:Number,
-    Peso:Number,
-    Data:Date
+    Exercicio:{
+        type:String,
+        required:true
+    },
+    Tipo:{
+        type:String,
+        required:true
+    },
+     Data:{
+        type:Date,
+        default:Date.now
+    },
+    Series:{
+        type:[seriesExecutadas],
+        required:true
+    }
+
 
 })
 
