@@ -1,3 +1,4 @@
+import { after } from "node:test";
 import modelListing from "../models/workoutListing.js";
 
 export const createWorkout = async (req,res,next)=>{
@@ -25,7 +26,7 @@ export const updatedWorkout=async(req,res,next)=>{
         const newWorkoutListing=await modelListing.findByIdAndUpdate(
             req.params.id,
             req.body,
-            {new:true}
+            {returnDocument:'after'}
         )
         res.send(newWorkoutListing);
     }

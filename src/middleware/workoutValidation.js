@@ -12,9 +12,20 @@ const validationSchema = z.object({
     Data:z.coerce.date()
 })
 
+const updatedValidationSchema=validationSchema.partial();
+
 export const workoutValidation=(req,res,next)=>{
     try{
         validationSchema.parse(req.body);
+        next();
+    }
+    catch(error){
+        next(error)
+    }
+}
+export const updateWworkoutValidation=(req,res,next)=>{
+    try{
+        updatedValidationSchema.parse(req.body);
         next();
     }
     catch(error){
